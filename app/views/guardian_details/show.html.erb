@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @guardian_detail.name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @guardian_detail.contact %>
+</p>
+
+<p>
+  <strong>Relation:</strong>
+  <%= @guardian_detail.relation %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @guardian_detail.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @guardian_detail.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @guardian_detail.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @guardian_detail.state %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @guardian_detail.zipcode %>
+</p>
+
+<p>
+  <strong>Qualification:</strong>
+  <%= @guardian_detail.qualification %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @guardian_detail.student %>
+</p>
+
+<%= link_to 'Edit', edit_guardian_detail_path(@guardian_detail) %> |
+<%= link_to 'Back', guardian_details_path %>
