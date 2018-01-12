@@ -1,6 +1,7 @@
 module Api
   module V1
     class GuardianDetailsController < ApplicationController
+      skip_before_action :verify_authenticity_token
        def index
     	 @guardian_details = GuardianDetail.all
 

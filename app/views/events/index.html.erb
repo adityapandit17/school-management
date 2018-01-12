@@ -1,0 +1,117 @@
+<style type="text/css">
+  #events .calendar
+   {
+  border-collapse: collapse;
+  width: 100%;
+  }
+  td, th 
+  {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th
+   {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td
+   {
+    background: #FFF;
+    color: #777;
+    height: 80px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  .notmonth, .notmonth a 
+  {
+   color: #CCC; 
+ }
+
+  
+  .today
+   {
+    background-color: #D7F2FF; 
+   }
+
+#events #month 
+{
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+
+}
+ 
+  a 
+  {
+  text-decoration: none;
+    padding: 0 10px;
+    color: #999;
+  }
+
+
+#events ul {
+  font-size: 11px;
+  padding-left: 20px;
+}
+</style>
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_date %></td>
+        <td><%= event.end_date %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
+
+<br>
+
+<div id="events">
+  <h2 id="month">
+  <%= link_to "<", date: @date.prev_month %>
+  <%= @date.strftime("%B %Y") %>   
+  <%= link_to ">", date: @date.next_month %>
+</h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @events_by_date[date] %>
+    <ul>
+      <% @events_by_date[date].each do |event| %>
+        <li><%= link_to event.title, event %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

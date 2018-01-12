@@ -1,6 +1,7 @@
 module Api
   module V1
     class StudentsController < ApplicationController
+
        def index
     	@students = Student.all
 
@@ -13,7 +14,7 @@ module Api
   end
      
      def create
-    @student = Student.new(user_params)
+    @student = Student.new(student_params)
 
     if @student.save
       render json: @student, status: :created, location: @student
@@ -48,7 +49,7 @@ module Api
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:firstname, :lastname, :email, :age, :contact, :address, :bloodgroup, :sex, :city, :dob)
+      params.require(:student).permit(:firstname, :lastname, :email, :age, :contact, :address, :bloodgroup, :sex, :city,:dob)
     end
 
     end

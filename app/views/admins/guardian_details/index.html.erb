@@ -1,0 +1,56 @@
+<%- model_class = GuardianDetail -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:contact) %></th>
+      <th><%= model_class.human_attribute_name(:relation) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zipcode) %></th>
+      <th><%= model_class.human_attribute_name(:qualification) %></th>
+      <th><%= model_class.human_attribute_name(:student_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @guardian_details.each do |guardian_detail| %>
+      <tr>
+        <td><%= link_to guardian_detail.id, guardian_detail_path(guardian_detail) %></td>
+        <td><%= guardian_detail.name %></td>
+        <td><%= guardian_detail.contact %></td>
+        <td><%= guardian_detail.relation %></td>
+        <td><%= guardian_detail.address %></td>
+        <td><%= guardian_detail.email %></td>
+        <td><%= guardian_detail.city %></td>
+        <td><%= guardian_detail.state %></td>
+        <td><%= guardian_detail.zipcode %></td>
+        <td><%= guardian_detail.qualification %></td>
+        <td><%= guardian_detail.student_id %></td>
+        <td><%=l guardian_detail.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      admins_guardian_detail_path(guardian_detail), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admins_guardian_detail_path(guardian_detail), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admins_guardian_detail_path(guardian_detail),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admins_guardian_detail_path,
+            :class => 'btn btn-primary' %>

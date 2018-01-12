@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
 
-  resources :guardian_details
-  resources :students
+  
+  resources :events do
+resources :pictures
+  end
+  devise_for :users
 
 
 namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :users
     resources :guardian_details
   resources :students
     end
   end
 
-  resources :users
+namespace :admins do
+    resources :students
+    resources :guardian_details
+  end
 
-  root to: 'users#index'
+ resources :students
+    resources :guardian_details
+
+
+  root to: 'students#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

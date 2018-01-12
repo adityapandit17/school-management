@@ -1,0 +1,37 @@
+<%- model_class = GuardianDetail -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @guardian_detail.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact) %>:</strong></dt>
+  <dd><%= @guardian_detail.contact %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:relation) %>:</strong></dt>
+  <dd><%= @guardian_detail.relation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @guardian_detail.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @guardian_detail.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @guardian_detail.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @guardian_detail.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
+  <dd><%= @guardian_detail.zipcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:qualification) %>:</strong></dt>
+  <dd><%= @guardian_detail.qualification %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:student_id) %>:</strong></dt>
+  <dd><%= @guardian_detail.student_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              guardian_details_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_guardian_detail_path(@guardian_detail), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              guardian_detail_path(@guardian_detail),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

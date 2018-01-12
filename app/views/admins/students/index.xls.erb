@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">first name</Data></Cell>
+        <Cell><Data ss:Type="String">last name</Data></Cell>
+        <Cell><Data ss:Type="String">email</Data></Cell>
+        <Cell><Data ss:Type="String">age</Data></Cell>
+        <Cell><Data ss:Type="String">contact</Data></Cell>
+        <Cell><Data ss:Type="String">address</Data></Cell>
+        <Cell><Data ss:Type="String">blood group</Data></Cell>
+        <Cell><Data ss:Type="String">sex</Data></Cell>
+        <Cell><Data ss:Type="String">city</Data></Cell>
+        <Cell><Data ss:Type="String">date of birth</Data></Cell>
+
+      </Row>
+    <% @students.each do |student| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= student.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.lastname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.age %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.contact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.bloodgroup %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.sex %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student.dob %></Data></Cell>
+
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

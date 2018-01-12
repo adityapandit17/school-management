@@ -10,7 +10,7 @@ class GuardianDetail < ApplicationRecord
  validates :state, presence: true
  validates :zipcode, presence: true
  validates :qualification, presence: true
- validates :student_id, presence: true
+ # validates :student_id, presence: true
 
 
 end

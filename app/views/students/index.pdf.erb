@@ -1,0 +1,41 @@
+<%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+    
+      <th><%= model_class.human_attribute_name(:firstname) %></th>
+      <th><%= model_class.human_attribute_name(:lastname) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:age) %></th>
+      <th><%= model_class.human_attribute_name(:contact) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:bloodgroup) %></th>
+      <th><%= model_class.human_attribute_name(:sex) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:dob) %></th>
+   
+    
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+       
+        <td><%= student.firstname %></td>
+        <td><%= student.lastname %></td>
+        <td><%= student.email %></td>
+        <td><%= student.age %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.address %></td>
+        <td><%= student.bloodgroup %></td>
+        <td><%= student.sex %></td>
+        <td><%= student.city %></td>
+        <td><%= student.dob %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>

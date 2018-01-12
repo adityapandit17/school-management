@@ -1,54 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = GuardianDetail -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @guardian_detail.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @guardian_detail.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact) %>:</strong></dt>
+  <dd><%= @guardian_detail.contact %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:relation) %>:</strong></dt>
+  <dd><%= @guardian_detail.relation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @guardian_detail.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @guardian_detail.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @guardian_detail.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @guardian_detail.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
+  <dd><%= @guardian_detail.zipcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:qualification) %>:</strong></dt>
+  <dd><%= @guardian_detail.qualification %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:student_id) %>:</strong></dt>
+  <dd><%= @guardian_detail.student_id %></dd>
+</dl>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @guardian_detail.contact %>
-</p>
-
-<p>
-  <strong>Relation:</strong>
-  <%= @guardian_detail.relation %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @guardian_detail.address %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @guardian_detail.email %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @guardian_detail.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @guardian_detail.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @guardian_detail.zipcode %>
-</p>
-
-<p>
-  <strong>Qualification:</strong>
-  <%= @guardian_detail.qualification %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @guardian_detail.student %>
-</p>
-
-<%= link_to 'Edit', edit_guardian_detail_path(@guardian_detail) %> |
-<%= link_to 'Back', guardian_details_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              guardian_details_path, :class => 'btn btn-default'  %>

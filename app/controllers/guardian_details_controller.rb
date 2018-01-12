@@ -17,50 +17,6 @@ class GuardianDetailsController < ApplicationController
     @guardian_detail = GuardianDetail.new
   end
 
-  # GET /guardian_details/1/edit
-  def edit
-  end
-
-  # POST /guardian_details
-  # POST /guardian_details.json
-  def create
-    @guardian_detail = GuardianDetail.new(guardian_detail_params)
-
-    respond_to do |format|
-      if @guardian_detail.save
-        format.html { redirect_to @guardian_detail, notice: 'Guardian detail was successfully created.' }
-        format.json { render :show, status: :created, location: @guardian_detail }
-      else
-        format.html { render :new }
-        format.json { render json: @guardian_detail.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /guardian_details/1
-  # PATCH/PUT /guardian_details/1.json
-  def update
-    respond_to do |format|
-      if @guardian_detail.update(guardian_detail_params)
-        format.html { redirect_to @guardian_detail, notice: 'Guardian detail was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guardian_detail }
-      else
-        format.html { render :edit }
-        format.json { render json: @guardian_detail.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /guardian_details/1
-  # DELETE /guardian_details/1.json
-  def destroy
-    @guardian_detail.destroy
-    respond_to do |format|
-      format.html { redirect_to guardian_details_url, notice: 'Guardian detail was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guardian_detail

@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Guardian Details</h1>
-
-<table>
+<%- model_class = GuardianDetail -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Contact</th>
-      <th>Relation</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-      <th>Qualification</th>
-      <th>Student</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:contact) %></th>
+      <th><%= model_class.human_attribute_name(:relation) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zipcode) %></th>
+      <th><%= model_class.human_attribute_name(:qualification) %></th>
+      <th><%= model_class.human_attribute_name(:student_id) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @guardian_details.each do |guardian_detail| %>
       <tr>
@@ -31,15 +30,12 @@
         <td><%= guardian_detail.state %></td>
         <td><%= guardian_detail.zipcode %></td>
         <td><%= guardian_detail.qualification %></td>
-        <td><%= guardian_detail.student %></td>
-        <td><%= link_to 'Show', guardian_detail %></td>
-        <td><%= link_to 'Edit', edit_guardian_detail_path(guardian_detail) %></td>
-        <td><%= link_to 'Destroy', guardian_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= guardian_detail.student_id %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      guardian_detail_path(guardian_detail), :class => 'btn btn-default btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Guardian Detail', new_guardian_detail_path %>
