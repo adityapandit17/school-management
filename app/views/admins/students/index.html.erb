@@ -59,9 +59,3 @@
   <%= link_to "Excel", admins_students_path(format: "xls") , :class => 'btn btn-primary'%>
 <%= link_to "Download Invoice (PDF)", students_path(@students, :format => "pdf" , :class => 'btn btn-primary') %>
   
-
-<h2>Import Students</h2>
-<%= form_tag import_students_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
